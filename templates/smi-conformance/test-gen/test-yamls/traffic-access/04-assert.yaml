@@ -1,0 +1,12 @@
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+ name: allow-traffic-service-a
+ namespace: istio-system-smi-conformance
+spec:
+  hosts:
+  - app-a
+  http:
+  - route:
+    - destination:
+        host: app-b

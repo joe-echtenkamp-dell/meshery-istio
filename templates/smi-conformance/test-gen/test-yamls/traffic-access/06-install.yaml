@@ -1,0 +1,14 @@
+apiVersion: security.istio.io/v1beta1
+kind: AuthorizationPolicy
+metadata:
+  name: deny-traffic-service-a
+  namespace: istio-system-smi-conformance
+spec:
+  selector:
+    matchLabels:
+      app: app-a
+  action: DENY
+  rules:
+  - to:
+    - operation:
+        methods: ["GET", "POST", "DELETE", "PUT", "PATCH", "HEAD", "CONNECT", "OPTIONS", "TRACE"]   
